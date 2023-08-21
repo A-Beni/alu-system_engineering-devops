@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
-# Change user in nginx.conf
 sudo sed -i 's/#user www-data/user nginx/' /etc/nginx/nginx.conf
-
-# Update port in sites-available configuration
 sudo sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
-
-# Gracefully stop Apache if it's running
 sudo service apache2 stop
-
-# Restart Nginx service
 sudo service nginx restart
 
